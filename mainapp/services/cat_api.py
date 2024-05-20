@@ -15,5 +15,5 @@ def get_cat():
         },
     )
     data = response.json()
-    cat_url = data[0]["url"]
-    return cat_url
+    cat_img = data[0]["url"]
+    return cat_img
