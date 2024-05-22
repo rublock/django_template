@@ -10,3 +10,5 @@
 * requirements/local.txt
 * bootstarp5, static, header, sticky footer 
 * MainPageViewTest
+ 
+![](https://raw.githubusercontent.com/rublock/djano_CBV/main/app/static/img/mainapp.PNG)
