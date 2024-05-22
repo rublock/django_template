@@ -11,4 +11,4 @@
 * bootstarp5, static, header, sticky footer 
 * MainPageViewTest
  
-![](https://raw.githubusercontent.com/rublock/djano_CBV/main/app/static/img/mainapp.PNG)
+![](https://raw.githubusercontent.com/rublock/django_CBV/main/static/img/mainapp.png?token=GHSAT0AAAAAACSKVAFHDNURLGAFLT2FIYSEZSNZ3HQ)
