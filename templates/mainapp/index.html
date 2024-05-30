@@ -2,7 +2,10 @@
 {% block content %}
 
 <div class="d-flex justify-content-center align-items-center">
-    Welcome to cats page!
+    <form action="{% url 'mainapp:cat_list_page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-dark">Get cats!</button>
+    </form>
 </div>
 
 {% endblock %}

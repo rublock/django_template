@@ -1,6 +1,16 @@
 ### BASE DJANGO TEMPLATE
 ##### Mainapp
 
+- [ ] HomePage View
+- [ ] 18in
+- [ ] logging
+- [ ] docs
+- [ ] degug toolbar
+- [x] context processors
+- [ ] admin
+- [ ] load roller async
+- [ ] cat form
+
 * .gitignore python
 * MIT License
 * mainapp
