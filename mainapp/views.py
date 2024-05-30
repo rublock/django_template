@@ -1,16 +1,21 @@
-from django.views.generic import TemplateView
+from django.core.paginator import Paginator
+from django.views.generic import ListView, TemplateView
 
 from .services.cat_api import get_cat
 
 
-class MainPageView(TemplateView):
-    """Главная страница"""
-
+class HomePage(TemplateView):
     template_name = "mainapp/index.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        cat_img = get_cat()
-        context["cat_img"] = cat_img
-        context["title"] = "cats"
-        return context
+
+class CatList(ListView):
+    """Main page with cats list"""
+
+    template_name = "mainapp/cat_list.html"
+    context_object_name = "cats"
+    paginate_by = 2
+
+    def get_queryset(self):
+        """Get list of cats from get_cat()"""
+        content = get_cat()
+        return content

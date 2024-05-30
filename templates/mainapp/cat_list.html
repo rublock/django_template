@@ -1,35 +1,6 @@
-### BASE DJANGO TEMPLATE
-##### Mainapp
+{% extends "base.html" %}
+{% block content %}
 
-* .gitignore python
-* MIT License
-* mainapp
-* .env and sample.env
-* BASE_DIR / "templates"
-* mainapp/services
-* requirements/local.txt
-* bootstarp5, static, header, sticky footer
----
-* HomePage View
-```python
-class HomePage(TemplateView):
-    template_name = "mainapp/index.html"
-```
-* CatList View
-```python
-class CatList(ListView):
-    """Main page with cats list"""
-    template_name = "mainapp/cat_list.html"
-    context_object_name = "cats"
-    paginate_by = 2
-
-    def get_queryset(self):
-        """Get list of cats from get_cat()"""
-        content = get_cat()
-        return content
-```
-* pagination
-```html
 <ul class="list-unstyled" >
     {% for i in cats %}
         <div class="d-flex justify-content-center align-items-center">
@@ -63,6 +34,5 @@ class CatList(ListView):
     <!-- END Pagination -->
 
 </ul>
-```
- 
-![](https://raw.githubusercontent.com/rublock/django_CBV/main/static/img/mainapp.png?token=GHSAT0AAAAAACSKVAFHDNURLGAFLT2FIYSEZSNZ3HQ)
+
+{% endblock %}
