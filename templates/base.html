@@ -11,11 +11,14 @@
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
     <title>{{ main_title }}</title>
 </head>
-<body>
+<body class="body">
     {% include 'header.html' %}
     <div class="container d-flex justify-content-center align-items-center content">
         {% block content %}{% endblock %}
     </div>
     {% include 'footer.html' %}
 </body>
+<script src="https://unpkg.com/htmx.org@1.9.12"
+        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous">
+</script>
 </html>

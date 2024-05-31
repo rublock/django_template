@@ -5,7 +5,15 @@ from .services.cat_api import get_cat
 
 
 class HomePage(TemplateView):
+    """Home page"""
+
     template_name = "mainapp/index.html"
+
+
+class FloatFormView(TemplateView):
+    """Form for cats number"""
+
+    template_name = "mainapp/float_form.html"
 
 
 class CatList(ListView):

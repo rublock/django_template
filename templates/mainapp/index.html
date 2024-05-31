@@ -4,7 +4,8 @@
 <div class="d-flex justify-content-center align-items-center">
     <form action="{% url 'mainapp:cat_list_page' %}" method="get">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-dark">Get cats!</button>
+        <button type="submit" class="btn btn-outline-dark" hx-trigger="mouseover"
+                hx-get="/float_form" hx-swap="outerHTML">Get cats!</button>
     </form>
 </div>
 
