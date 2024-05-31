@@ -1,4 +1,3 @@
-from django.core.paginator import Paginator
 from django.views.generic import ListView, TemplateView
 
 from .services.cat_api import get_cat
@@ -11,12 +10,12 @@ class HomePage(TemplateView):
 
 
 class FloatFormView(TemplateView):
-    """Form for cats number"""
+    """Form for cats number, htmx"""
 
     template_name = "mainapp/float_form.html"
 
 
-class CatList(ListView):
+class CatListView(ListView):
     """Main page with cats list"""
 
     template_name = "mainapp/cat_list.html"
@@ -25,5 +24,6 @@ class CatList(ListView):
 
     def get_queryset(self):
         """Get list of cats from get_cat()"""
-        content = get_cat()
+        cat_num = self.request.GET.get("cat_num")
+        content = get_cat(cat_num)
         return content

@@ -3,9 +3,9 @@ import time
 import requests
 
 
-def get_cat():
+def get_cat(cat_num):
     cat_img = []
-    for _ in range(8):
+    for _ in range(int(cat_num)):
         response = requests.get(
             "https://api.thecatapi.com/v1/images/search",
             params={

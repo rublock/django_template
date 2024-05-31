@@ -9,7 +9,8 @@
 - [x] context processors
 - [ ] admin
 - [ ] load roller async
-- [ ] cat form
+- [x] cat form
+- [ ] exceptions
 
 * .gitignore python
 * MIT License
@@ -18,7 +19,7 @@
 * BASE_DIR / "templates"
 * mainapp/services
 * requirements/local.txt
-* bootstarp5, static, header, sticky footer
+* htmx, bootstarp5, static, header, sticky footer
 ---
 * HomePage View
 ```python
