@@ -102,5 +102,6 @@ to get session id
 ```python
 session_id = request.session.session_key
 ```
+![](https://github.com/rublock/django_template/raw/main/static/img/sessionid.png)
 ---
 ![](https://github.com/rublock/django_template/raw/main/static/img/mainapp.png)
