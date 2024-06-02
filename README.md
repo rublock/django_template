@@ -1,7 +1,17 @@
 ### BASE DJANGO TEMPLATE
-##### Mainapp
+### MAINAPP
 
-- [ ] HomePage View
+- [x] .gitignore python
+- [x] MIT License 
+- [x] mainapp
+- [x] .env and sample.env
+- [x] BASE_DIR / "templates"
+- [x] mainapp/services
+- [x] requirements/local.txt
+---
+- [x] htmx, bootstarp5, static, header, sticky footer
+- [x] HomePage View
+- [x] List View
 - [ ] 18in
 - [ ] logging
 - [ ] docs
@@ -9,37 +19,33 @@
 - [x] context processors
 - [ ] admin
 - [ ] load roller async
-- [x] cat form
-- [ ] exceptions
-
-* .gitignore python
-* MIT License
-* mainapp
-* .env and sample.env
-* BASE_DIR / "templates"
-* mainapp/services
-* requirements/local.txt
-* htmx, bootstarp5, static, header, sticky footer
+- [ ] form
+- [ ] exceptions, 404 page
+- [x] session id
 ---
-* HomePage View
+##### HomePage View
 ```python
 class HomePage(TemplateView):
+    """Home page"""
+    
     template_name = "mainapp/index.html"
 ```
-* CatList View
+##### CatList View
 ```python
-class CatList(ListView):
+class CatListView(ListView):
     """Main page with cats list"""
+
     template_name = "mainapp/cat_list.html"
     context_object_name = "cats"
     paginate_by = 2
 
     def get_queryset(self):
         """Get list of cats from get_cat()"""
-        content = get_cat()
+        cat_num = self.request.GET.get("cat_num")
+        content = get_cat(cat_num)
         return content
 ```
-* pagination
+##### Pagination
 ```html
 <ul class="list-unstyled" >
     {% for i in cats %}
@@ -75,5 +81,26 @@ class CatList(ListView):
 
 </ul>
 ```
- 
-![](https://raw.githubusercontent.com/rublock/django_CBV/main/static/img/mainapp.png?token=GHSAT0AAAAAACSKVAFHDNURLGAFLT2FIYSEZSNZ3HQ)
+##### Session
+```python
+class HomePage(TemplateView):
+    """Home page"""
+
+    template_name = "mainapp/index.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.session.session_key:
+            request.session.save()
+        request.session.set_expiry(settings.SESSION_COOKIE_AGE)
+        return super().dispatch(request, *args, **kwargs)
+```
+config/settings.py
+```python
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+```
+to get session id
+```python
+session_id = request.session.session_key
+```
+---
+![](https://github.com/rublock/django_template/raw/main/static/img/mainapp.png)
