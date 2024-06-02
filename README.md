@@ -32,6 +32,9 @@ class HomePage(TemplateView):
 ```
 ##### CatList View
 ```python
+from .services.cat_api import get_cat
+
+
 class CatListView(ListView):
     """Main page with cats list"""
 
