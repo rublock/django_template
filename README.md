@@ -24,14 +24,14 @@
 - [ ] exceptions, 404 page
 - [x] session id
 ---
-##### HomePage View
+### HomePage View
 ```python
 class HomePage(TemplateView):
     """Home page"""
     
     template_name = "mainapp/index.html"
 ```
-##### CatList View
+### CatList View
 ```python
 from .services.cat_api import get_cat
 
@@ -49,7 +49,7 @@ class CatListView(ListView):
         content = get_cat(cat_num)
         return content
 ```
-##### Pagination
+### Pagination
 ```html
 <ul class="list-unstyled" >
     {% for i in cats %}
@@ -85,7 +85,7 @@ class CatListView(ListView):
 
 </ul>
 ```
-##### Session
+### Session
 ```python
 class HomePage(TemplateView):
     """Home page"""
@@ -107,7 +107,7 @@ to get session id
 session_id = request.session.session_key
 ```
 ![](https://github.com/rublock/django_template/raw/main/static/img/sessionid.png)
-##### Logging
+### Logging
 config/settings.py
 ```python
 LOGGING = {
