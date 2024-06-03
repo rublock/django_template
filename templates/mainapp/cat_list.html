@@ -10,6 +10,7 @@
     {% endfor %}
 
     <!-- Pagination -->
+    {% if page_obj.paginator.num_pages > 1 %}
       <nav aria-label="Page navigation example" class="d-flex justify-content-center align-items-center">
 
         <ul class="pagination">
@@ -31,6 +32,7 @@
         </ul>
 
       </nav>
+    {% endif %}
     <!-- END Pagination -->
 
 </ul>
