@@ -13,7 +13,7 @@
 - [x] HomePage View
 - [x] List View
 - [ ] 18in
-- [ ] logging
+- [x] logging
 - [ ] docs
 - [ ] degug toolbar
 - [x] context processors
