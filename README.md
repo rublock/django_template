@@ -12,6 +12,7 @@
 - [x] htmx, bootstarp5, static, header, sticky footer
 - [x] HomePage View
 - [x] List View
+- [x] pagination
 - [ ] 18in
 - [x] logging
 - [ ] docs
