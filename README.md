@@ -20,6 +20,7 @@
 - [ ] admin
 - [ ] load roller async
 - [ ] form
+- [ ] test all!
 - [ ] exceptions, 404 page
 - [x] session id
 ---
@@ -106,5 +107,44 @@ to get session id
 session_id = request.session.session_key
 ```
 ![](https://github.com/rublock/django_template/raw/main/static/img/sessionid.png)
+##### Logging
+config/settings.py
+```python
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console": {"format": "[%(asctime)s] %(levelname)s %(name)s (%(lineno)d) %(message)s"},
+    },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "console"},
+    },
+    "loggers": {
+        "django": {"level": "DEBUG", "handlers": ["console"], },
+        "mainapp": {"level": "DEBUG", "handlers": ["console"], },
+    },
+}
+```
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+
+class CatListView(ListView):
+    """Main page with cats list"""
+
+    template_name = "mainapp/cat_list.html"
+    context_object_name = "cats"
+    paginate_by = 2
+
+    def get_queryset(self):
+        """Get list of cats from get_cat()"""
+        cat_num = self.request.GET.get("cat_num")
+        content = get_cat(cat_num)
+        logger.debug(f'LOG MESSAGE: {content}')
+        return content
+```
+![](https://github.com/rublock/django_template/raw/main/static/img/logging.png)
+
 ---
 ![](https://github.com/rublock/django_template/raw/main/static/img/mainapp.png)

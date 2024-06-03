@@ -1,7 +1,11 @@
-from django.views.generic import ListView, TemplateView
+import logging
 
 from django.conf import settings
+from django.views.generic import ListView, TemplateView
+
 from .services.cat_api import get_cat
+
+logger = logging.getLogger(__name__)
 
 
 class HomePage(TemplateView):
@@ -33,5 +37,5 @@ class CatListView(ListView):
         """Get list of cats from get_cat()"""
         cat_num = self.request.GET.get("cat_num")
         content = get_cat(cat_num)
-        session_id = self.request.session.session_key
+        logger.debug(f"LOG MESSAGE: {content}")
         return content

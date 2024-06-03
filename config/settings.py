@@ -100,6 +100,27 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console": {"format": "[%(asctime)s] %(levelname)s %(name)s (%(lineno)d) %(message)s"},
+    },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "console"},
+    },
+    "loggers": {
+        "django": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+        },
+        "mainapp": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+        },
+    },
+}
