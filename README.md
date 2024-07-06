@@ -24,6 +24,7 @@
 - [ ] test all!
 - [ ] exceptions, 404 page
 - [x] session id
+- [ ] models
 ---
 ### HomePage View
 ```python

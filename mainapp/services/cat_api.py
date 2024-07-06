@@ -1,10 +1,10 @@
-import time
+import json
 
 import requests
 
 
 def get_cat(cat_num):
-    cat_img = []
+    cat_url = []
     for _ in range(int(cat_num)):
         response = requests.get(
             "https://api.thecatapi.com/v1/images/search",
@@ -19,6 +19,6 @@ def get_cat(cat_num):
             },
         )
         data = response.json()
-        cat_img.append(data[0]["url"])
+        cat_url.append(data[0]["url"])
 
-    return cat_img
+    return cat_url
