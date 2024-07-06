@@ -37,5 +37,5 @@ class CatListView(ListView):
         """Get list of cats from get_cat()"""
         cat_num = self.request.GET.get("cat_num")
         content = get_cat(cat_num)
-        logger.debug(f"LOG MESSAGE: {content}")
+        logger.info(f"LOG MESSAGE: {content}")
         return content

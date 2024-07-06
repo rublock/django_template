@@ -102,7 +102,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
-SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 
 LOGGING = {
     "version": 1,
@@ -115,11 +115,11 @@ LOGGING = {
     },
     "loggers": {
         "django": {
-            "level": "DEBUG",
+            "level": "INFO",
             "handlers": ["console"],
         },
         "mainapp": {
-            "level": "DEBUG",
+            "level": "INFO",
             "handlers": ["console"],
         },
     },

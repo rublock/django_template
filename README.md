@@ -112,6 +112,14 @@ session_id = request.session.session_key
 ![](https://github.com/rublock/django_template/raw/main/static/img/sessionid.png)
 ### Logging
 config/settings.py
+```txt
+1. CRITICAL. Цифровой эквивалент — 50.
+2. ERROR. Цифровой эквивалент — 40.
+3. WARNING. Цифровой эквивалент — 30.
+4. INFO. Цифровой эквивалент — 20.
+5. DEBUG. Цифровой эквивалент — 10.
+6. NOTSET. Цифровой эквивалент — 0.
+```
 ```python
 LOGGING = {
     "version": 1,
@@ -123,8 +131,8 @@ LOGGING = {
         "console": {"class": "logging.StreamHandler", "formatter": "console"},
     },
     "loggers": {
-        "django": {"level": "DEBUG", "handlers": ["console"], },
-        "mainapp": {"level": "DEBUG", "handlers": ["console"], },
+        "django": {"level": "INFO", "handlers": ["console"], },
+        "mainapp": {"level": "INFO", "handlers": ["console"], },
     },
 }
 ```
@@ -144,7 +152,7 @@ class CatListView(ListView):
         """Get list of cats from get_cat()"""
         cat_num = self.request.GET.get("cat_num")
         content = get_cat(cat_num)
-        logger.debug(f'LOG MESSAGE: {content}')
+        logger.info(f'LOG MESSAGE: {content}')
         return content
 ```
 ![](https://github.com/rublock/django_template/raw/main/static/img/logging.png)
