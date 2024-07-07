@@ -2,10 +2,10 @@ import json
 import logging
 
 from django.conf import settings
-from django.http import JsonResponse
+from django.shortcuts import redirect
 from django.views.generic import ListView, TemplateView
 
-from .models import Session, SessionUrl
+from .models import Session
 from .services.cat_api import get_cat
 
 logger = logging.getLogger(__name__)
@@ -21,14 +21,18 @@ class HomePage(TemplateView):
         Метод проверяет есть ли ключ сессии в браузере (Application - Cookie),
         если его нет, то ключ устанавливается.
         Устанавливается на какой срок действует ключ.
-        Берется образец ключа и сохраняется в таблицу Session.
-        При создании записи в таблице, нужно проверить есть ли уже такой ключ.
+        Проверяется есть ли уже такой ключ, если нет то
+        ключ сохраняется в таблицу Session.
         """
         if not request.session.session_key:
             request.session.save()
         request.session.set_expiry(settings.SESSION_COOKIE_AGE)
         session_key = request.session.session_key
-        Session.create_or_update_session(session_key)
+        if not Session.objects.filter(key=session_key).exists():
+            data = Session.objects.create(key=session_key)
+            data.save()
+        else:
+            pass
         return super().dispatch(request, *args, **kwargs)
 
 
