@@ -18,13 +18,14 @@
 - [ ] docs
 - [ ] degug toolbar
 - [x] context processors
-- [ ] admin
+- [x] admin
 - [ ] load roller async
 - [ ] form
 - [ ] test all!
 - [ ] exceptions, 404 page
 - [x] session id
-- [ ] models
+- [x] models
+- [ ] htmx to readme
 ---
 ### HomePage View
 ```python
