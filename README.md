@@ -25,7 +25,6 @@
 - [ ] exceptions, 404 page
 - [x] session id
 - [x] models
-- [ ] htmx to readme
 ---
 ### HomePage View
 ```python
