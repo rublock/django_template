@@ -25,6 +25,7 @@
 - [ ] exceptions, 404 page
 - [x] session id
 - [x] models
+- [ ] namespaces
 ---
 ### HomePage View
 ```python
